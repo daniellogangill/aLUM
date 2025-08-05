@@ -1,0 +1,80 @@
+/* General typography */
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #222;
+  line-height: 1.6;
+  font-size: 18px;
+  margin: 0;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+h1 { font-size: 48px; }
+h2 { font-size: 32px; }
+
+/* Hero section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 20px;
+  background: #f9f9f9;
+}
+
+.hero h1 {
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Button styles */
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #444;
+}
+
+/* Grid sections */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.grid-item {
+  text-align: center;
+}
+
+.grid-item img {
+  max-width: 80px;
+  margin-bottom: 20px;
+}
+
+/* CTA banner */
+.cta-banner {
+  background: #efefef;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+/* Footer */
+footer {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+}
