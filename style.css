@@ -1,23 +1,40 @@
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  min-height: 80vh;
-  background: url('assets/double-diamond.gif') center center / cover no-repeat;
-  padding: 60px 20px;
-  color: white; /* Ensures text is readable */
-  position: relative;
+/* ====== Base / Tokens ====== */
+:root{
+  /* Brand palette (your request) */
+  --blue:#007BFF;         /* Electric Blue (primary) */
+  --magenta:#FF0066;      /* Vivid Magenta (accent) */
+  --yellow:#FFD700;       /* Sunny Yellow (highlight) */
+  --teal:#00BFA6;         /* Teal Green (secondary) */
+
+  /* Neutrals */
+  --ink:#1c1d1f;
+  --ink-2:#2c2f33;
+  --muted:#6b7280;
+  --line:#e6e8eb;
+  --bg:#ffffff;
+  --bg-alt:#f7f9fb;
+
+  /* Effects */
+  --radius:14px;
+  --shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4); /* Dark overlay for better contrast */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.6;
 }
+img{max-width:100%;height:auto;display:block}
 
-.hero-content {
-  position: relative;
-  z-index: 1;
-}
+/* ====== Layout ====== */
+.container{width:min(1160px,92%);margin-inline:auto}
+
+/* ====== Nav ====== */
+.navbar{
+  position:sticky; top:0; z-index:1000;
+  background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 1px 0 rgba(0,
