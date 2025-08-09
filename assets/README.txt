@@ -1,0 +1,1 @@
+Place your double-diamond.gif here as assets/double-diamond.gif
