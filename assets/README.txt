@@ -1,1 +1,1 @@
-Place your double-diamond.gif here as assets/double-diamond.gif
+This is a lightweight placeholder GIF. Replace with your real file named exactly: double-diamond.gif
