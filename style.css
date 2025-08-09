@@ -103,3 +103,7 @@ a{color:inherit}
   .cards.two-col{grid-template-columns:1fr}
   .process{grid-template-columns:1fr 1fr}
 }
+
+/* Subheadings within content */
+.subheading{margin:34px 0 10px;font-size:clamp(22px,2.4vw,28px);font-weight:800;color:var(--ink-2)}
+.mt-lg{margin-top:48px}
