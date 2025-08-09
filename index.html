@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>aLUM – Human-Centered Design Workshops</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Fonts + Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Optional: basic SEO -->
+  <meta name="description" content="aLUM helps leaders and teams solve complex problems through high-impact workshops and human-centered design." />
 </head>
 <body>
 
@@ -13,7 +18,7 @@
   <header class="navbar">
     <div class="container nav-container">
       <div class="logo">aLUM</div>
-      <nav>
+      <nav aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="case-studies.html">Case Studies</a>
         <a href="contact.html">Contact</a>
@@ -21,7 +26,7 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero (background set via CSS to double-diamond.gif) -->
   <section class="hero">
     <div class="hero-content">
       <h1>We help teams solve problems and design better futures</h1>
@@ -30,5 +35,58 @@
     </div>
   </section>
 
-  <!-- Methods / Services -->
-  <section
+  <!-- Approach / Services -->
+  <section class="grid-section" id="services">
+    <div class="container">
+      <h2>Our Approach</h2>
+      <div class="grid">
+        <div class="grid-item">
+          <img src="https://via.placeholder.com/120" alt="Workshops icon" />
+          <h3>Workshops</h3>
+          <p>Facilitated sessions that create clarity, alignment, and momentum.</p>
+        </div>
+        <div class="grid-item">
+          <img src="https://via.placeholder.com/120" alt="Methods icon" />
+          <h3>Methods</h3>
+          <p>Human-centered tools and frameworks that guide effective collaboration.</p>
+        </div>
+        <div class="grid-item">
+          <img src="https://via.placeholder.com/120" alt="Learning icon" />
+          <h3>Learning</h3>
+          <p>Upskilling teams with practical skills to innovate with confidence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container" style="max-width: 900px;">
+      <h2>Ready to transform how your team works?</h2>
+      <p>Explore our case studies to see real outcomes, or reach out and we’ll design the right workshop for your challenge.</p>
+      <a href="contact.html" class="btn">Get Started</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-container">
+      <p>&copy; 2025 aLUM. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- (Optional) Smooth scroll for internal anchors -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});
+      });
+    });
+  </script>
+</body>
+</html>
