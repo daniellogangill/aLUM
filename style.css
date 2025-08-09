@@ -107,3 +107,58 @@ a{color:inherit}
 /* Subheadings within content */
 .subheading{margin:34px 0 10px;font-size:clamp(22px,2.4vw,28px);font-weight:800;color:var(--ink-2)}
 .mt-lg{margin-top:48px}
+
+
+/* === Contact card styling === */
+.contact-hero{padding-top:64px}
+.contact-card{
+  margin-top:24px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:20px;
+  box-shadow:0 20px 60px rgba(0,0,0,.08);
+  padding:28px;
+  max-width:820px;
+}
+.contact-card-title{
+  margin:4px 0 4px;
+  text-align:center;
+  font-weight:800;
+  color:var(--ink-2);
+}
+.contact-card-sub{
+  text-align:center;
+  color:var(--muted);
+  margin:0 0 12px;
+}
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-top:10px;
+}
+.field{display:flex;flex-direction:column}
+.field-full{grid-column:1 / -1}
+.field label{font-weight:600;margin-bottom:6px}
+.field input,.field textarea{
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:14px 12px;
+  font-size:16px;
+  outline:none;
+  transition:border-color .15s ease, box-shadow .15s ease;
+  background:#fff;
+}
+.field input:focus,.field textarea:focus{
+  border-color:var(--neon-pink);
+  box-shadow:0 0 0 3px rgba(255,16,240,.15);
+}
+.btn-block{width:100%;margin-top:4px}
+.privacy-note{color:var(--muted);font-size:13px;margin:8px 0 0;text-align:center}
+.hp{display:none}
+
+/* Responsive */
+@media (max-width:760px){
+  .contact-grid{grid-template-columns:1fr}
+  .contact-card{padding:22px}
+}
