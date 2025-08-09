@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Case Studies – aLUM</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Case Studies — aLUM</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Navigation -->
   <header class="navbar">
-    <div class="container nav-container">
-      <div class="logo">aLUM</div>
-      <nav>
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">aLUM</a>
+      <nav aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="case-studies.html">Case Studies</a>
         <a href="contact.html">Contact</a>
@@ -21,40 +19,45 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Client Case Studies</h1>
-      <p>Real-world examples of how we’ve helped organizations solve complex challenges through workshops and design thinking.</p>
-    </div>
-  </section>
-
-  <!-- Case Studies -->
-  <section class="grid-section">
+  <section class="section">
     <div class="container">
-      <div class="grid">
-        <div class="grid-item">
-          <img src="https://via.placeholder.com/200x120" alt="Case Study 1">
-          <h3>Telecommunications</h3>
-          <p>Guided a major telco’s executive team in aligning on their 2030 strategy and roadmap.</p>
-        </div>
-        <div class="grid-item">
-          <img src="https://via.placeholder.com/200x120" alt="Case Study 2">
-          <h3>Financial Services</h3>
-          <p>Partnered with a bank to redesign customer experiences and improve digital adoption.</p>
-        </div>
-        <div class="grid-item">
-          <img src="https://via.placeholder.com/200x120" alt="Case Study 3">
-          <h3>Logistics & Supply Chain</h3>
-          <p>Helped a logistics provider streamline operations and unlock efficiency across teams.</p>
-        </div>
+      <h1 class="section-title">Client case studies</h1>
+      <p class="section-intro">Epsilon: short narratives highlighting context, approach, and measurable outcomes.</p>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Telco Strategy Alignment</h3>
+          <p>Epsilon: cross-functional leadership workshop aligning 2030 vision; decisions, roadmap, and owners defined.</p>
+        </article>
+        <article class="card">
+          <h3>Banking Experience Redesign</h3>
+          <p>Epsilon: discovery to delivery path improving digital adoption and NPS in priority segments.</p>
+        </article>
+        <article class="card">
+          <h3>Logistics Flow Optimisation</h3>
+          <p>Epsilon: operational blueprint reducing handoffs and time-to-value across key lanes.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-banner">
-    <div class="container">
-      <h2>Want to achieve similar results?</h2>
-      <a href="contact.html" class="btn">Contact Us</a>
+  <section class="cta">
+    <div class="container cta-inner">
+      <div>
+        <h2>Ready to shape your next move?</h2>
+        <p>Epsilon: we’ll help you clarify, decide, and deliver.</p>
+      </div>
+      <a class="btn btn-primary" href="contact.html">Start a Conversation</a>
     </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div><div class="brand brand-footer">aLUM</div><p class="muted">Epsilon: human-centered workshops for complex problems.</p></div>
+      <div><h5>Explore</h5><ul><li><a href="index.html">Home</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h5>Contact</h5><ul><li><a href="mailto:info@mtl2.xyz">info@mtl2.xyz</a></li><li>Sydney, Australia</li></ul></div>
+    </div>
+    <div class="container footer-bottom"><small>© 2025 aLUM. All rights reserved.</small></div>
+  </footer>
+</body>
+</html>
