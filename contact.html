@@ -8,10 +8,42 @@
 <header class="navbar"><div class="container nav-inner"><a class="brand" href="index.html">aLUM</a>
 <nav aria-label="Primary"><a href="index.html">Home</a><a href="how-we-work.html">How We Work</a><a href="case-studies.html">Case Studies</a><a href="contact.html">Contact</a></nav></div></header>
 <section class="section"><div class="container"><h1 class="section-title">Get in touch</h1>
-<p class="section-intro">Epsilon: tell us about your challenge and desired outcomes; we’ll recommend the right workshop path.</p>
-<div class="cards"><article class="card"><h3>Email</h3><p><a href="mailto:info@mtl2.xyz">info@mtl2.xyz</a></p></article>
-<article class="card"><h3>Phone</h3><p>+61 400 000 000</p></article>
-<article class="card"><h3>Location</h3><p>Sydney, Australia</p></article></div></div></section>
+<p class="section-intro">Tell us about your challenge and desired outcomes; we’ll recommend the right workshop or training path.</p>
+
+<form id="contactForm" class="contact-form" method="POST">
+  <div class="form-row">
+    <label for="name">Name</label>
+    <input id="name" name="name" type="text" required placeholder="Your name">
+  </div>
+  <div class="form-row">
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" required placeholder="you@example.com">
+  </div>
+  <div class="form-row">
+    <label for="request">Request</label>
+    <textarea id="request" name="request" rows="6" required placeholder="How can we help?"></textarea>
+  </div>
+  <button class="btn btn-primary" type="submit">Send</button>
+  <p class="form-note">This form will open your email client to send to <strong>daniellogangill@gmail.com</strong>. For serverless sending, replace the form action with your Formspree endpoint.</p>
+</form>
+
+</div></section>
+
+<script>
+// mailto fallback submit
+const form = document.getElementById('contactForm');
+form.addEventListener('submit', (e)=>{
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const request = document.getElementById('request').value.trim();
+  const to = 'daniellogangill@gmail.com';
+  const subject = encodeURIComponent('aLUM contact: ' + name);
+  const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nRequest:\n' + request);
+  window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+});
+</script>
+
 <footer class="footer"><div class="container footer-grid"><div><div class="brand brand-footer">aLUM</div><p class="muted">Epsilon: human-centered workshops for complex problems.</p></div>
 <div><h5>Explore</h5><ul><li><a href="index.html">Home</a></li><li><a href="how-we-work.html">How We Work</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="contact.html">Contact</a></li></ul></div>
 <div><h5>Contact</h5><ul><li><a href="mailto:info@mtl2.xyz">info@mtl2.xyz</a></li><li>Sydney, Australia</li></ul></div></div>
