@@ -1,1 +1,1 @@
-This is a lightweight placeholder GIF. Replace with your real file named exactly: double-diamond.gif
+Replace with your real double-diamond.gif if desired. Logos in assets/logos/.
