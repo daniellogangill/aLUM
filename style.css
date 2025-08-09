@@ -24,14 +24,14 @@ img{max-width:100%;height:auto;display:block}
 a{color:inherit}
 .container{width:min(1160px,92%);margin-inline:auto}
 
-/* Nav (top banner) — switch to light pink for contrast */
+/* Nav */
 .navbar{position:sticky;top:0;z-index:1000;background:var(--light-pink);border-bottom:1px solid rgba(0,0,0,.06)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
 .brand{font-weight:800;letter-spacing:.2px;color:var(--black);text-decoration:none;font-size:22px}
 .navbar nav a{color:var(--black);text-decoration:none;margin-left:22px;font-weight:600}
 .navbar nav a:hover{color:var(--neon-pink)}
 
-/* Hero — bring back GIF with stronger overlay so text pops */
+/* Hero */
 .hero{min-height:76vh;display:flex;align-items:center;position:relative;background:#111 url('assets/double-diamond.gif') center/cover no-repeat}
 .hero::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.55)}
 .hero-content{position:relative;color:#fff;padding:72px 0;text-align:left}
@@ -52,12 +52,13 @@ a{color:inherit}
 .section-title{font-size:clamp(26px,3vw,36px);margin:0 0 10px;font-weight:800;color:var(--ink-2)}
 .section-intro{color:var(--muted);max-width:780px}
 
-/* Cards — tone down the pink icon circles, improve icon visibility */
+/* Cards */
 .cards{margin-top:34px;display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.cards.two-col{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
 .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);transition:transform .15s ease,box-shadow .15s ease}
 .card:hover{transform:translateY(-2px)}
 .icon-circle{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#ffffff;border:2px solid var(--line);margin-bottom:12px}
-.icon-emoji{font-size:26px;color:var(--charcoal)} /* darker icon color for contrast */
+.icon-emoji{font-size:26px;color:var(--charcoal)}
 .card h3{margin:6px 0 10px;color:var(--neon-pink)}
 .card p{color:var(--muted)}
 
@@ -67,19 +68,30 @@ a{color:inherit}
 .step h4{margin:0 0 8px;color:var(--neon-pink)}
 .step p{margin:0;color:var(--muted)}
 
-/* Logos — now using images */
-.logo-row{margin-top:26px;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
-.logo{display:flex;align-items:center;justify-content:center;height:96px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:10px}
-.logo img{max-height:56px;width:auto;filter:grayscale(100%);opacity:.95;transition:filter .2s ease,opacity .2s ease}
-.logo:hover img{filter:none;opacity:1}
+/* Full-width callout */
+.full-width-callout{
+  margin-top:18px;
+  background:#ffffffcc;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:22px;
+  box-shadow:var(--shadow);
+}
+.full-width-callout h3{margin:0 0 6px;color:var(--ink-2)}
+.full-width-callout p{margin:0;color:var(--muted)}
 
-/* CTA */
+/* Carousel */
+.carousel{position:relative;display:flex;align-items:center;gap:10px}
+.carousel-track{display:flex;overflow:hidden;scroll-behavior:smooth;gap:16px}
+.carousel-track img{height:56px; width:auto; background:#fff; padding:14px; border:1px solid var(--line); border-radius:12px; box-shadow:var(--shadow)}
+.carousel-btn{background:#fff;border:1px solid var(--line);border-radius:50%;width:42px;height:42px;cursor:pointer;font-size:22px;display:grid;place-items:center}
+.carousel-btn:hover{background:var(--light-pink)}
+
+/* CTA & Footer */
 .cta{background:var(--light-pink);border-top:3px solid rgba(0,0,0,.06);border-bottom:3px solid rgba(0,0,0,.06)}
 .cta-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:30px 0}
 .cta h2{margin:0 0 6px;color:var(--charcoal)}
 .cta p{margin:0;color:#333}
-
-/* Footer */
 .footer{background:var(--black);color:#e5e7eb}
 .footer-grid{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));padding:48px 0 16px}
 .brand-footer{font-weight:800;color:#fff;margin-bottom:8px}
