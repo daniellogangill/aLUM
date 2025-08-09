@@ -1,169 +1,24 @@
-/* Importing the font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-
-/* Global Styles */
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  color: #222;
-  line-height: 1.6;
-  background-color: #FFFFFF; /* White background */
-}
-
-/* Heading Styles */
-h1, h2, h3 {
-  margin: 0 0 20px;
-  font-weight: 700;
-}
-
-p {
-  margin-bottom: 20px;
-  color: #444;
-}
-
-/* Container for Centering Content */
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: auto;
-}
-
-/* Navbar */
-.navbar {
-  background: #111;
-  color: #fff;
-  border-bottom: 3px solid #FFD700; /* Sunny Yellow underline */
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 0;
-}
-
-.navbar .logo {
-  font-size: 22px;
-  font-weight: 700;
-}
-
-.navbar nav a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #FFFFFF;
-  font-weight: 500;
-}
-
-.navbar nav a:hover {
-  color: #FF0066; /* Vivid Magenta on hover */
-}
-
-/* Hero Section */
 .hero {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   min-height: 80vh;
-  background: #F5F7FA; /* Light background */
+  background: url('double-diamond.gif') center center / cover no-repeat;
   padding: 60px 20px;
+  color: white; /* Ensures text is readable */
+  position: relative;
 }
 
-.hero h1 {
-  font-size: 48px;
-  max-width: 800px;
-  margin: 0 auto 20px;
-  color: #007BFF; /* Electric Blue heading */
+/* Optional: dark overlay for better text contrast */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* 40% dark overlay */
 }
 
-.hero p {
-  font-size: 20px;
-  max-width: 600px;
-  margin: 0 auto 30px;
-  color: #222;
+.hero-content {
+  position: relative;
+  z-index: 1;
 }
-
-/* Button Styles */
-.btn {
-  display: inline-block;
-  padding: 14px 28px;
-  background: #007BFF; /* Electric Blue button */
-  color: #fff;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: 600;
-  transition: background 0.3s;
-}
-
-.btn:hover {
-  background: #FF0066; /* Vivid Magenta on hover */
-}
-
-/* Grid Section */
-.grid-section {
-  padding: 80px 20px;
-  background: #fff;
-  text-align: center;
-}
-
-.grid-section h2 {
-  margin-bottom: 40px;
-  color: #007BFF; /* Electric Blue for section headings */
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
-}
-
-.grid-item img {
-  max-width: 120px;
-  margin-bottom: 20px;
-}
-
-.grid-item h3 {
-  color: #00BFA6; /* Teal Green for subheadings */
-}
-
-/* CTA Banner */
-.cta-banner {
-  background: #FFD700; /* Sunny Yellow */
-  text-align: center;
-  padding: 80px 20px;
-}
-
-.cta-banner h2 {
-  margin-bottom: 20px;
-  color: #222;
-}
-
-.cta-banner p {
-  margin-bottom: 30px;
-  color: #333;
-}
-
-/* Footer */
-footer {
-  background: #111;
-  color: #fff;
-  padding: 30px 20px;
-}
-
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.footer-links a {
-  color: #bbb;
-  margin-left: 15px;
-  text-decoration: none;
-}
-
-.footer-links a:hover
