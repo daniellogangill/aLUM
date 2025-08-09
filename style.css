@@ -4,18 +4,17 @@
   justify-content: center;
   text-align: center;
   min-height: 80vh;
-  background: url('double-diamond.gif') center center / cover no-repeat;
+  background: url('assets/double-diamond.gif') center center / cover no-repeat;
   padding: 60px 20px;
   color: white; /* Ensures text is readable */
   position: relative;
 }
 
-/* Optional: dark overlay for better text contrast */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4); /* 40% dark overlay */
+  background: rgba(0, 0, 0, 0.4); /* Dark overlay for better contrast */
 }
 
 .hero-content {
