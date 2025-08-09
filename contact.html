@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us – aLUM</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — aLUM</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Navigation -->
   <header class="navbar">
-    <div class="container nav-container">
-      <div class="logo">aLUM</div>
-      <nav>
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">aLUM</a>
+      <nav aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="case-studies.html">Case Studies</a>
         <a href="contact.html">Contact</a>
@@ -21,44 +19,35 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Get in Touch</h1>
-      <p>We’d love to hear from you. Reach out to learn more about our workshops, methods, and how we can help your team.</p>
-    </div>
-  </section>
-
-  <!-- Contact Info -->
-  <section class="grid-section">
+  <section class="section">
     <div class="container">
-      <div class="grid">
-        <div class="grid-item">
+      <h1 class="section-title">Get in touch</h1>
+      <p class="section-intro">Epsilon: tell us about your challenge and desired outcomes; we’ll recommend the right workshop path.</p>
+
+      <div class="cards">
+        <article class="card">
           <h3>Email</h3>
           <p><a href="mailto:info@mtl2.xyz">info@mtl2.xyz</a></p>
-        </div>
-        <div class="grid-item">
+        </article>
+        <article class="card">
           <h3>Phone</h3>
           <p>+61 400 000 000</p>
-        </div>
-        <div class="grid-item">
+        </article>
+        <article class="card">
           <h3>Location</h3>
           <p>Sydney, Australia</p>
-        </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container footer-container">
-      <p>&copy; 2025 aLUM. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-      </div>
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div><div class="brand brand-footer">aLUM</div><p class="muted">Epsilon: human-centered workshops for complex problems.</p></div>
+      <div><h5>Explore</h5><ul><li><a href="index.html">Home</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h5>Contact</h5><ul><li><a href="mailto:info@mtl2.xyz">info@mtl2.xyz</a></li><li>Sydney, Australia</li></ul></div>
     </div>
+    <div class="container footer-bottom"><small>© 2025 aLUM. All rights reserved.</small></div>
   </footer>
-
 </body>
 </html>
