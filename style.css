@@ -64,23 +64,22 @@ a{color:inherit}
 .card h3{margin:6px 0 10px;color:var(--neon-pink)}
 .card p{color:var(--muted)}
 
-/* Process */
-.process{margin-top:28px;display:grid;gap:16px;grid-template-columns:repeat(4,1fr)}
-.step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px}
-.step h4{margin:0 0 8px;color:var(--neon-pink)}
-.step p{margin:0;color:var(--muted)}
-
-/* Callout */
-.full-width-callout{margin-top:18px;background:#ffffffcc;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
-.full-width-callout h4{margin:0 0 6px;color:var(--neon-pink)}
-.full-width-callout p{margin:0;color:var(--muted)}
+/* SFA + Data */
+.sfa{display:flex;flex-direction:column;gap:12px;margin-top:16px}
+.sfa-band{width:100%; background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px 18px; box-shadow:var(--shadow)}
+.sfa-band h4{margin:0 0 6px; color:var(--neon-pink)}
+.sfa-band p{margin:0; color:var(--muted)}
+.data-box{margin-top:16px; width:100%; background:#ffffffcc; border:1px solid var(--line); border-radius:12px; padding:18px 20px; box-shadow:var(--shadow)}
+.data-box h4{margin:0 0 6px; color:var(--neon-pink)}
+.data-box p{margin:0; color:var(--muted)}
 
 /* Horizontal Carousel */
 .carousel{position:relative;display:flex;align-items:center;gap:12px}
-.carousel-viewport{flex:1;overflow:hidden}
-.carousel-track{display:flex;flex-wrap:nowrap;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:10px}
-.carousel-track img{flex:0 0 auto;height:100px;width:auto;background:#fff;padding:20px;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);scroll-snap-align:center}
+.carousel-viewport{flex:1;overflow-x:auto;overflow-y:hidden}
+.carousel-track{display:flex;flex-wrap:nowrap;gap:22px;overflow-x:visible;padding:10px}
+.carousel-track img{flex:0 0 auto;height:100px;width:auto;background:#fff;padding:20px;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
 .carousel-btn{background:#fff;border:1px solid var(--line);border-radius:50%;width:46px;height:46px;cursor:pointer;font-size:24px;display:grid;place-items:center;user-select:none}
+.carousel-btn:disabled{opacity:.4;cursor:not-allowed}
 .carousel-btn:hover{background:var(--light-pink)}
 
 /* Contact card */
@@ -129,7 +128,6 @@ a{color:inherit}
   .actions{justify-content:center}
   .cta-inner{flex-direction:column;text-align:center}
   .cards.two-col{grid-template-columns:1fr}
-  .process{grid-template-columns:1fr 1fr}
   .contact-grid{grid-template-columns:1fr}
   .contact-card{padding:22px}
 }
