@@ -37,27 +37,31 @@
     <video class="hero-bg" autoplay muted loop playsinline poster="assets/double-diamond.gif">
       <source src="assets/alum-home-video.mp4" type="video/mp4">
     </video>
+
     <div class="hero-content container">
       <h1>Design better futures through decisive collaboration</h1>
       <p class="lead">Clear Outcomes, Confident Decisions, and Delivering Workshops Through a Collaborative Human Centered Design Approach.</p>
+
       <div class="actions">
         <a class="btn btn-primary" href="case-studies.html">See Results</a>
         <a class="btn btn-ghost" href="how-we-work.html">Our Approach</a>
       </div>
-      <div class="hero-cta">
-  <p>
-    We love what we do and firmly believe that good design is good business, and good business starts with supporting our customers.
-    If you have a challenge to solve and you're just looking to kick-the-tyres on it, we'd love to have a chat.
-    Feel free to grab up to two-30min slots in our diary, and we'd love to chat.
-  </p>
 
-  <a class="btn btn-primary hero-booking-btn"
-     href="https://calendly.com/daniellogangill/15min-discussion-with-dan"
-     target="_blank"
-     rel="noopener noreferrer">
-    Make A Booking
-  </a>
-</div>
+      <!-- CTA block (added earlier) -->
+      <div class="hero-cta">
+        <p>
+          We love what we do and firmly believe that good design is good business, and good business starts with supporting our customers.
+          If you have a challenge to solve and you're just looking to kick-the-tyres on it, we'd love to have a chat.
+          Feel free to grab up to two-30min slots in our diary, and we'd love to chat.
+        </p>
+
+        <a class="btn btn-primary hero-booking-btn"
+           href="https://calendly.com/daniellogangill/15min-discussion-with-dan"
+           target="_blank"
+           rel="noopener noreferrer">
+          Make A Booking
+        </a>
+      </div>
     </div>
   </section>
 
@@ -65,20 +69,35 @@
     <div class="container">
       <h2 class="section-title">How we help</h2>
       <p class="section-intro">We do two things, and we do them really, really well.</p>
+
       <div class="cards two-col">
-        <article class="card service-card">
+
+        <!-- Card 1: clickable -> modal image -->
+        <article class="card service-card"
+                 role="button"
+                 tabindex="0"
+                 data-modal-img="assets/service-workshops.jpg"
+                 data-modal-alt="Tackling big-hairy problems through Workshops">
           <div class="icon-circle"><span class="icon-emoji">🧠</span></div>
           <h3>Tackling big-hairy problems through Workshops</h3>
           <p>We co-design and are tied-at-the-hip with our clients throughout both design and delivery of our workshops.</p>
         </article>
-        <article class="card">
+
+        <!-- Card 2: clickable -> modal image -->
+        <article class="card service-card"
+                 role="button"
+                 tabindex="0"
+                 data-modal-img="assets/service-hcd.jpg"
+                 data-modal-alt="Human Centered Design">
           <div class="icon-circle"><span class="icon-emoji">🎓</span></div>
           <h3>Human Centered Design</h3>
           <p>Using real problems from YOUR business, we design & deliver HCD training to upskill your team</p>
         </article>
+
       </div>
     </div>
   </section>
+
   <section class="section">
     <div class="container">
       <h2 class="section-title">Companies our team have worked with</h2>
@@ -116,6 +135,14 @@
     </div>
     <div class="container footer-bottom"><small>© 2025 aLUM. All rights reserved.</small></div>
   </footer>
+
+  <!-- Service image modal / lightbox -->
+  <div class="modal-overlay" id="serviceModal" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-label="Service details">
+      <button class="modal-close" type="button" aria-label="Close">×</button>
+      <img class="modal-image" id="serviceModalImg" src="" alt="">
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
