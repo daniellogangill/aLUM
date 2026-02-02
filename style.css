@@ -131,3 +131,77 @@ a{color:inherit}
   .contact-grid{grid-template-columns:1fr}
   .contact-card{padding:22px}
 }
+/* =========================================================
+   Mobile nav / hamburger menu (append-only)
+   ========================================================= */
+
+.site-header .brand-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Hamburger button */
+.nav-toggle {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 10px;
+  background: #fff;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.nav-toggle__bar {
+  width: 20px;
+  height: 2px;
+  background: #111;
+  display: block;
+}
+
+/* Nav container (mobile default: hidden until opened) */
+.site-nav {
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 10px;
+}
+
+.site-nav.is-open { display: flex; }
+
+.nav-link {
+  display: block;
+  padding: 12px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  background: rgba(0,0,0,0.06);
+  color: inherit;
+}
+
+/* Desktop: show full nav, hide hamburger */
+@media (min-width: 860px) {
+  .nav-toggle { display: none; }
+  .site-nav {
+    width: auto;
+    display: flex !important;
+    flex-direction: row;
+    gap: 14px;
+    padding-top: 0;
+  }
+  .nav-link {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+  }
+}
+
+/* Optional: ensure media is responsive */
+img, video { max-width: 100%; height: auto; }
