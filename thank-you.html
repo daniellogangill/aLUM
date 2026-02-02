@@ -5,15 +5,36 @@
   <link rel="icon" href="favicon.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-
 </head><body>
-<header class="navbar"><div class="container nav-inner"><a class="brand" href="index.html">aLUM</a>
-<nav aria-label="Primary"><a href="index.html">Home</a><a href="how-we-work.html">How We Work</a><a href="case-studies.html">Case Studies</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav></div></header>
+
+<header class="navbar site-header">
+  <div class="container nav-inner brand-row">
+    <a class="brand" href="index.html">aLUM</a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+    </button>
+
+    <nav id="site-nav" class="site-nav" aria-label="Primary">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="how-we-work.html" class="nav-link">How We Work</a>
+      <a href="case-studies.html" class="nav-link">Case Studies</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+  </div>
+</header>
+
 <section class="section"><div class="container"><h1 class="section-title">Thank you!</h1>
 <p class="section-intro">Your message has been sent. We’ll be in touch soon.</p><a class="btn btn-primary" href="index.html">Return to Home</a></div></section>
+
 <footer class="footer"><div class="container footer-grid">
 <div><div class="brand brand-footer">aLUM</div><p class="muted">Epsilon: human-centered workshops for complex problems.</p></div>
 <div><h5>Explore</h5><ul><li><a href="index.html">Home</a></li><li><a href="how-we-work.html">How We Work</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-<div><h5>Contact</h5><ul><li><a href="mailto:info@mtl2.xyz">info@mtl2.xyz</a></li><li>Sydney, Australia</li></ul></div></div>
+<div><h5>Contact</h5><ul><li><a href="mailto:info@designmythinking.xyz">info@designmythinking.xyz</a></li><li>Sydney, Australia</li></ul></div></div>
 <div class="container footer-bottom"><small>© 2025 aLUM. All rights reserved.</small></div></footer>
+
+<script src="script.js"></script>
 </body></html>
