@@ -32,3 +32,46 @@
     setTimeout(updateButtons, 0);
   });
 })();
+/* =========================================================
+   Mobile nav / hamburger toggle (append-only)
+   ========================================================= */
+(function () {
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('#site-nav');
+
+  if (!toggle || !nav) return;
+
+  function closeMenu() {
+    nav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open menu');
+  }
+
+  function openMenu() {
+    nav.classList.add('is-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Close menu');
+  }
+
+  toggle.addEventListener('click', () => {
+    const isOpen = nav.classList.contains('is-open');
+    if (isOpen) closeMenu();
+    else openMenu();
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', (e) => {
+    const clickedInside = nav.contains(e.target) || toggle.contains(e.target);
+    if (!clickedInside) closeMenu();
+  });
+
+  // Close on ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // Close after clicking a link
+  nav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => closeMenu());
+  });
+})();
