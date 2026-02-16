@@ -137,12 +137,24 @@
   </footer>
 
   <!-- Service image modal / lightbox -->
-  <div class="modal-overlay" id="serviceModal" aria-hidden="true">
-    <div class="modal-panel" role="dialog" aria-modal="true" aria-label="Service details">
-      <button class="modal-close" type="button" aria-label="Close">×</button>
-      <img class="modal-image" id="serviceModalImg" src="" alt="">
-    </div>
+<div class="modal-overlay" id="serviceModal" aria-hidden="true">
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-label="Service details">
+    <button class="modal-close" type="button" aria-label="Close">×</button>
+
+    <!-- Image (homepage) -->
+    <img class="modal-image" id="serviceModalImg" src="" alt="" style="display:none;">
+
+    <!-- PDF (case studies) -->
+    <iframe
+      id="serviceModalPdf"
+      title="Case study PDF"
+      src=""
+      style="display:none; width:100%; height:75vh; border:0; border-radius:12px;"
+      loading="lazy">
+    </iframe>
   </div>
+</div>
+
 
   <script src="script.js"></script>
 </body>
