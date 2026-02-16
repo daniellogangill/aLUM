@@ -119,30 +119,46 @@
 
 <script src="script.js"></script>
 
-<!-- Minimal inline JS for PDF modal (does not require script.js changes) -->
 <script>
   (function () {
     const modal = document.getElementById("caseStudyModal");
     const frame = document.getElementById("caseStudyModalFrame");
     const titleEl = document.getElementById("caseStudyModalTitle");
-    const closeBtn = modal.querySelector(".modal-close");
+    const closeBtn = modal ? modal.querySelector(".modal-close") : null;
+
+    if (!modal || !frame || !closeBtn) return;
+
+    let lastFocusedEl = null;
 
     function openPdf(pdfUrl, title) {
-      // Append #toolbar=0 to simplify viewer in most browsers (optional)
-      const url = pdfUrl.includes("#") ? pdfUrl : (pdfUrl + "#toolbar=0");
+      lastFocusedEl = document.activeElement;
 
-      frame.src = url;
-      titleEl.textContent = title || "";
+      // IMPORTANT: your CSS likely shows modals via .is-open (like the homepage)
+      modal.classList.add("is-open");
       modal.setAttribute("aria-hidden", "false");
+
+      titleEl.textContent = title || "";
+
+      // Load the PDF (toolbar hidden optional)
+      const url = pdfUrl.includes("#") ? pdfUrl : (pdfUrl + "#toolbar=0");
+      frame.src = url;
+
       document.body.style.overflow = "hidden";
       closeBtn.focus();
     }
 
     function closePdf() {
+      modal.classList.remove("is-open");
       modal.setAttribute("aria-hidden", "true");
+
       frame.src = "";
       titleEl.textContent = "";
+
       document.body.style.overflow = "";
+
+      if (lastFocusedEl && typeof lastFocusedEl.focus === "function") {
+        lastFocusedEl.focus();
+      }
     }
 
     // Click handlers on cards
@@ -165,19 +181,21 @@
     // Close button
     closeBtn.addEventListener("click", closePdf);
 
-    // Click outside panel closes
+    // Click outside panel closes (more robust than e.target === modal)
     modal.addEventListener("click", (e) => {
-      if (e.target === modal) closePdf();
+      const panel = modal.querySelector(".modal-panel");
+      if (panel && !panel.contains(e.target)) closePdf();
     });
 
     // ESC closes
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") {
+      if (e.key === "Escape" && modal.classList.contains("is-open")) {
         closePdf();
       }
     });
   })();
 </script>
+
 
 </body>
 </html>
