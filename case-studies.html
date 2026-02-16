@@ -1,11 +1,16 @@
-<!DOCTYPE html><html lang="en"><head><title>Case Studies — aLUM</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Case Studies — aLUM</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="icon" href="favicon.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-</head><body>
+</head>
+
+<body>
 
 <header class="navbar site-header">
   <div class="container nav-inner brand-row">
@@ -26,17 +31,153 @@
   </div>
 </header>
 
-<section class="section"><div class="container"><h1 class="section-title">Client case studies</h1>
-<p class="section-intro">Epsilon: short narratives highlighting context, approach, and measurable outcomes.</p>
-<div class="cards"><a class="card" href="case-study-telecommunications.html"><h3>Telecommunications — Strategy Alignment</h3><p>Epsilon: leadership alignment on 2030 vision; decisions, roadmap, and owners defined.</p></a>
-<a class="card" href="case-study-banking.html"><h3>Financial Services — Experience Redesign</h3><p>Epsilon: discovery to delivery path improving digital adoption and NPS in priority segments.</p></a>
-<a class="card" href="case-study-logistics.html"><h3>Logistics — Flow Optimisation</h3><p>Epsilon: operational blueprint reducing handoffs and time-to-value across key lanes.</p></a></div></div></section>
+<section class="section">
+  <div class="container">
+    <h1 class="section-title">Client case studies</h1>
+    <p class="section-intro">Epsilon: short narratives highlighting context, approach, and measurable outcomes.</p>
 
-<footer class="footer"><div class="container footer-grid">
-<div><div class="brand brand-footer">aLUM</div><p class="muted">Epsilon: human-centered workshops for complex problems.</p></div>
-<div><h5>Explore</h5><ul><li><a href="index.html">Home</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-<div><h5>Contact</h5><ul><li><a href="mailto:info@designmythinking.xyz">info@designmythinking.xyz</a></li><li>Sydney, Australia</li></ul></div></div>
-<div class="container footer-bottom"><small>© 2025 aLUM. All rights reserved.</small></div></footer>
+    <div class="cards">
+
+      <!-- Card 1 (PDF modal) -->
+      <article class="card service-card"
+               role="button"
+               tabindex="0"
+               data-modal-pdf="assets/case-studies/telecommunications.pdf"
+               data-modal-title="Telecommunications — Strategy Alignment">
+        <h3>Telecommunications — Strategy Alignment</h3>
+        <p>Epsilon: leadership alignment on 2030 vision; decisions, roadmap, and owners defined.</p>
+      </article>
+
+      <!-- Card 2 (PDF modal) -->
+      <article class="card service-card"
+               role="button"
+               tabindex="0"
+               data-modal-pdf="assets/case-studies/financial-services.pdf"
+               data-modal-title="Financial Services — Experience Redesign">
+        <h3>Financial Services — Experience Redesign</h3>
+        <p>Epsilon: discovery to delivery path improving digital adoption and NPS in priority segments.</p>
+      </article>
+
+      <!-- Card 3 (PDF modal) -->
+      <article class="card service-card"
+               role="button"
+               tabindex="0"
+               data-modal-pdf="assets/case-studies/logistics.pdf"
+               data-modal-title="Logistics — Flow Optimisation">
+        <h3>Logistics — Flow Optimisation</h3>
+        <p>Epsilon: operational blueprint reducing handoffs and time-to-value across key lanes.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="brand brand-footer">aLUM</div>
+      <p class="muted">Epsilon: human-centered workshops for complex problems.</p>
+    </div>
+    <div>
+      <h5>Explore</h5>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="mailto:info@designmythinking.xyz">info@designmythinking.xyz</a></li>
+        <li>Sydney, Australia</li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom"><small>© 2025 aLUM. All rights reserved.</small></div>
+</footer>
+
+<!-- PDF modal / lightbox (same class names as homepage modal) -->
+<div class="modal-overlay" id="caseStudyModal" aria-hidden="true">
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-label="Case study">
+    <button class="modal-close" type="button" aria-label="Close">×</button>
+
+    <!-- Optional: a small title inside the modal -->
+    <h3 id="caseStudyModalTitle" style="margin: 0 0 12px 0;"></h3>
+
+    <!-- Scrollable PDF -->
+    <iframe
+      id="caseStudyModalFrame"
+      title="Case study PDF"
+      src=""
+      style="width: 100%; height: min(75vh, 720px); border: 0; border-radius: 12px;"
+      loading="lazy">
+    </iframe>
+  </div>
+</div>
 
 <script src="script.js"></script>
-</body></html>
+
+<!-- Minimal inline JS for PDF modal (does not require script.js changes) -->
+<script>
+  (function () {
+    const modal = document.getElementById("caseStudyModal");
+    const frame = document.getElementById("caseStudyModalFrame");
+    const titleEl = document.getElementById("caseStudyModalTitle");
+    const closeBtn = modal.querySelector(".modal-close");
+
+    function openPdf(pdfUrl, title) {
+      // Append #toolbar=0 to simplify viewer in most browsers (optional)
+      const url = pdfUrl.includes("#") ? pdfUrl : (pdfUrl + "#toolbar=0");
+
+      frame.src = url;
+      titleEl.textContent = title || "";
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      closeBtn.focus();
+    }
+
+    function closePdf() {
+      modal.setAttribute("aria-hidden", "true");
+      frame.src = "";
+      titleEl.textContent = "";
+      document.body.style.overflow = "";
+    }
+
+    // Click handlers on cards
+    document.querySelectorAll("[data-modal-pdf]").forEach((card) => {
+      const handler = () => {
+        const pdf = card.getAttribute("data-modal-pdf");
+        const title = card.getAttribute("data-modal-title") || "";
+        if (pdf) openPdf(pdf, title);
+      };
+
+      card.addEventListener("click", handler);
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          handler();
+        }
+      });
+    });
+
+    // Close button
+    closeBtn.addEventListener("click", closePdf);
+
+    // Click outside panel closes
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closePdf();
+    });
+
+    // ESC closes
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") {
+        closePdf();
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
