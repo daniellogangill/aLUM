@@ -78,57 +78,134 @@
 })();
 
 /* =========================================================
-   Service modal / lightbox (for the two service cards)
+   Service modal / lightbox (supports images + PDFs)
+   - Home page: elements with [data-modal-img]
+   - Case Studies: elements with [data-modal-pdf]
    ========================================================= */
 (function () {
   const modal = document.getElementById('serviceModal');
-  const modalImg = document.getElementById('serviceModalImg');
-  if (!modal || !modalImg) return;
+  if (!modal) return;
 
-  const cards = document.querySelectorAll('.service-card[data-modal-img]');
+  const modalImg = document.getElementById('serviceModalImg');
+  const modalPdf = document.getElementById('serviceModalPdf');
+
+  // If you forgot to add the iframe to your modal markup,
+  // PDFs will not work (images will still work).
+  // We won't hard-fail the script; just guard later.
   let lastFocusedEl = null;
 
-  function openModal(imgSrc, imgAlt) {
+  function setOpenState(isOpen) {
+    if (isOpen) {
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    } else {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function openImage(imgSrc, imgAlt) {
     lastFocusedEl = document.activeElement;
 
+    // Hide PDF (if present)
+    if (modalPdf) {
+      modalPdf.src = '';
+      modalPdf.style.display = 'none';
+    }
+
+    // Show image
+    if (!modalImg) return;
     modalImg.src = imgSrc;
     modalImg.alt = imgAlt || 'Service details';
+    modalImg.style.display = 'block';
 
-    modal.classList.add('is-open');
-    modal.setAttribute('aria-hidden', 'false');
+    setOpenState(true);
 
-    // focus close button
     const closeBtn = modal.querySelector('.modal-close');
     if (closeBtn) closeBtn.focus();
+  }
 
-    // prevent background scroll
-    document.body.style.overflow = 'hidden';
+  function openPdf(pdfSrc) {
+    lastFocusedEl = document.activeElement;
+
+    // Hide image
+    if (modalImg) {
+      modalImg.src = '';
+      modalImg.alt = '';
+      modalImg.style.display = 'none';
+    }
+
+    // Show PDF
+    if (!modalPdf) return;
+    modalPdf.style.display = 'block';
+    modalPdf.src = pdfSrc;
+
+    setOpenState(true);
+
+    const closeBtn = modal.querySelector('.modal-close');
+    if (closeBtn) closeBtn.focus();
   }
 
   function closeModal() {
-    modal.classList.remove('is-open');
-    modal.setAttribute('aria-hidden', 'true');
+    setOpenState(false);
 
-    modalImg.src = '';
-    modalImg.alt = '';
+    if (modalImg) {
+      modalImg.src = '';
+      modalImg.alt = '';
+      modalImg.style.display = 'none';
+    }
 
-    document.body.style.overflow = '';
+    if (modalPdf) {
+      modalPdf.src = '';
+      modalPdf.style.display = 'none';
+    }
 
     if (lastFocusedEl && typeof lastFocusedEl.focus === 'function') {
       lastFocusedEl.focus();
     }
   }
 
-  // Open on click + keyboard (Enter/Space)
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      openModal(card.dataset.modalImg, card.dataset.modalAlt);
-    });
+  // Bind Image triggers (homepage)
+  document.querySelectorAll('[data-modal-img]').forEach(el => {
+    const handler = (e) => {
+      // prevent navigation if it’s an <a>
+      if (el.tagName.toLowerCase() === 'a') e.preventDefault();
 
-    card.addEventListener('keydown', (e) => {
+      const src = el.getAttribute('data-modal-img');
+      const alt = el.getAttribute('data-modal-alt') || '';
+      if (!src) return;
+
+      openImage(src, alt);
+    };
+
+    el.addEventListener('click', handler);
+    el.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        openModal(card.dataset.modalImg, card.dataset.modalAlt);
+        handler(e);
+      }
+    });
+  });
+
+  // Bind PDF triggers (case studies)
+  document.querySelectorAll('[data-modal-pdf]').forEach(el => {
+    const handler = (e) => {
+      // prevent navigation if it’s an <a>
+      if (el.tagName.toLowerCase() === 'a') e.preventDefault();
+
+      const src = el.getAttribute('data-modal-pdf');
+      if (!src) return;
+
+      openPdf(src);
+    };
+
+    el.addEventListener('click', handler);
+    el.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handler(e);
       }
     });
   });
