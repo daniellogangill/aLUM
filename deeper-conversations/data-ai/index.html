@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Data & AI — Deeper Conversations</title>
+  <meta name="description" content="Plain-English explanation of how Deeper Conversations uses data and AI." />
+  <link rel="icon" href="../../favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="dc-page">
+<header class="dc-header"><div class="dc-shell dc-header__inner"><a class="dc-brand" href="../../index.html">Design My Thinking</a><nav class="dc-nav" aria-label="Deeper Conversations"><a href="../">Deeper Conversations</a><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a><a href="./" aria-current="page">Data &amp; AI</a></nav></div></header>
+<main class="dc-doc"><div class="dc-shell"><header class="dc-doc__header"><span class="dc-kicker">Deeper Conversations</span><h1 class="dc-doc__title">Your data &amp; AI</h1><p class="dc-doc__meta">A plain-English guide · Last updated: 7 September 2026</p><p>This page explains what enters Deeper Conversations, where it goes, what AI sees and what the product deliberately does not do.</p></header>
+<div class="dc-doc__body">
+<div class="dc-callout"><strong>The principle:</strong> collect less, use it for a clear reason, keep the user in control, and never confuse an AI draft with a finished human contribution.</div>
+
+<h2>1. What we keep</h2>
+<table><thead><tr><th>Data</th><th>Why we use it</th><th>Where it is kept</th></tr></thead><tbody>
+<tr><td>Email and account ID</td><td>Private login and account ownership</td><td>Supabase authentication and account records</td></tr>
+<tr><td>Themes, keywords and relevance settings</td><td>Decide which professional conversations are worth surfacing</td><td>Your private Supabase workspace</td></tr>
+<tr><td>Voice settings and selected writing examples</td><td>Help drafts sound more like you and less like generic AI copy</td><td>Your private Supabase workspace; selected derived settings may be sent to OpenAI during generation</td></tr>
+<tr><td>Drafts, final text and interaction history</td><td>Let you continue work and build a useful body of work over time</td><td>Your private Supabase workspace</td></tr>
+<tr><td>People and professional relationship context you choose to add</td><td>Provide useful context when deciding whether and how to engage</td><td>Your private Supabase workspace</td></tr>
+<tr><td>In-progress screen/workspace state</td><td>Recover work after navigation or refresh</td><td>Browser storage and a user-scoped Supabase workspace record</td></tr>
+<tr><td>Public article metadata and summaries</td><td>Surface potentially relevant conversations</td><td>Application discovery records</td></tr>
+</tbody></table>
+
+<h2>2. Optional LinkedIn archive import</h2>
+<p>You do not need to upload a LinkedIn archive. If you choose to, the current importer recognises selected CSV exports such as Connections, Comments, Reactions, Shares, Posts and Articles.</p>
+<p>Depending on the files you select, this can create:</p>
+<ul><li><strong>People records:</strong> name, organisation, position, profile URL and connection date;</li><li><strong>History records:</strong> your comment/post/repost text, reaction type, date and relevant URL;</li><li><strong>Voice samples:</strong> selected text from your own comments and posts, used to improve Voice DNA.</li></ul>
+<p><strong>Private message export files are deliberately ignored.</strong> If a selected filename indicates messages, the importer skips it rather than bringing that material into the workspace.</p>
+
+<h2>3. Optional LinkedIn notification signals</h2>
+<p>A user can optionally configure a user-controlled notification workflow. It converts selected LinkedIn notification emails into a small set of structured signals such as:</p>
+<ul><li>actor or author name;</li><li>profile or post link;</li><li>visible notification snippet;</li><li>signal type and receipt time;</li><li>limited metadata such as email subject, sender and message ID.</li></ul>
+<p>The current ingestion path is designed to store these normalised fields rather than the raw email body. The ingest credential is stored as a hash rather than as the original token.</p>
+
+<h2>4. User-supplied LinkedIn posts and screenshots</h2>
+<p>You can bring a post into the workflow yourself by supplying text, a link or a screenshot. When you upload a screenshot for extraction, the image is sent to the OpenAI API so that visible author, organisation and post text can be extracted. The extraction endpoint is configured not to cache the response, and the screenshot is not intentionally written to the Deeper Conversations application database by that endpoint.</p>
+<p>The extraction prompt is designed to use only what is visibly present in the screenshot and not infer hidden identity details or other private characteristics.</p>
+
+<h2>5. What OpenAI receives</h2>
+<p>AI processing depends on the feature you invoke. A drafting request can include selected context such as:</p>
+<ul><li>conversation title, source and summary;</li><li>the user's configured theme;</li><li>a suggested angle or requested point of view;</li><li>recommended engagement type;</li><li>selected underlying source summaries;</li><li>Voice DNA settings such as directness, formality, warmth, sentence variation, comfort challenging, and preferred or avoided writing patterns.</li></ul>
+<p>A screenshot extraction request sends the user-supplied screenshot and an instruction to extract only visible information.</p>
+<p>We do not need to send the user's entire database to OpenAI to generate a draft. Only the context required for the feature should be supplied.</p>
+
+<h2>6. Does anyone train AI on this data?</h2>
+<p><strong>Design My Thinking does not train a general-purpose AI model on your content.</strong></p>
+<p>Deeper Conversations uses the OpenAI API rather than the consumer ChatGPT product. OpenAI currently states that API inputs and outputs are not used to train its models by default unless the API customer explicitly opts in to data sharing. We do not intend to opt Deeper Conversations user traffic into model training without first changing our disclosures and, where appropriate, seeking consent.</p>
+<p>OpenAI may still retain API inputs and outputs for a limited period for service operation, security and abuse monitoring. Standard API retention can be up to 30 days for many uses, subject to the particular endpoint, account settings, legal requirements and future policy changes.</p>
+
+<h2>7. What AI is allowed to do</h2>
+<p>AI can help:</p>
+<ul><li>refine relevance;</li><li>interpret a professional conversation;</li><li>suggest agree-and-extend, challenge or reframe positions;</li><li>extract visible text from a screenshot;</li><li>generate a starting draft in the user's configured voice.</li></ul>
+<p>AI is not the final decision-maker. The product is intentionally designed so that a human decides whether to engage and what is ultimately published.</p>
+
+<h2>8. What the product deliberately does not do</h2>
+<ul><li><strong>No LinkedIn scraping.</strong> The product is not designed to crawl or scrape LinkedIn pages.</li><li><strong>No automated LinkedIn posting.</strong> Drafts stay drafts until the user chooses what to do with them.</li><li><strong>No required LinkedIn archive.</strong> Archive import is optional.</li><li><strong>No private-message archive import.</strong> Message files are rejected by the current importer.</li><li><strong>No advertising profile.</strong> We do not currently use behavioural advertising trackers in Deeper Conversations.</li><li><strong>No sale of personal information.</strong> User data is not a product we sell.</li><li><strong>No sensitive-person inference by design.</strong> The service is not intended to infer sensitive attributes about professional contacts.</li></ul>
+
+<h2>9. Where information is processed</h2>
+<p>The main application database is currently hosted using Supabase in a Sydney region. The application itself is hosted on Vercel. AI requests are processed by OpenAI. Some processing and support therefore occurs outside Australia or may involve international subprocessors.</p>
+<p>We will update this page if the core hosting architecture materially changes.</p>
+
+<h2>10. Deleting your data</h2>
+<p>You can request deletion by emailing <a href="mailto:hello@designmythinking.xyz">hello@designmythinking.xyz</a>. General user-linked data is intended to be removed from active systems within 30 days of a valid account deletion request, subject to limited backups, security records or legal requirements.</p>
+<p>If Deeper Conversations begins receiving content through an official LinkedIn API, API-derived LinkedIn data and access tokens will be deleted according to LinkedIn's applicable developer rules, which can require immediate deletion on request or account closure.</p>
+
+<h2>11. Questions</h2>
+<p>This page is meant to make the architecture understandable rather than bury the important points in legal language. If something is unclear, email <a href="mailto:hello@designmythinking.xyz">hello@designmythinking.xyz</a>. The formal <a href="../privacy/">Privacy Policy</a> and <a href="../terms/">Terms of Use</a> apply alongside this explanation.</p>
+</div></div></main>
+<footer class="dc-footer"><div class="dc-shell dc-footer__inner"><div>© Design My Thinking</div><div class="dc-footer__links"><a href="../">Deeper Conversations</a><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a></div><div>LinkedIn® is a trademark of LinkedIn Corporation.</div></div></footer>
+</body>
+</html>
